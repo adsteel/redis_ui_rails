@@ -1,0 +1,35 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Dashboard", root_path %></li>
+    <li class="is-active"><a href="#" aria-current="page">Instance Overview</a></li>
+  </ul>
+</nav>
+
+<%= render "shared/instance_hero" %>
+
+<section class="section">
+  <%= link_to instance_config_path(@instance.id) do %>
+    <div style="color: black;">
+      <button class="button is-info">Config</button>
+      <span class="vertical-align">View Redis server configuration details</span>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to instance_keys_path(@instance.id) do %>
+    <div style="color: black;">
+      <button class="button is-warning">Keys</button>
+      <span class="vertical-align">View a sample of keys currently stored in this Redis.</span>
+    </div>
+  <% end %>
+</section>
+
+<section class="section">
+  <h2 class="title">Resource Links</h2>
+  <div class="content">
+    <ul>
+      <% @instance.resource_links.each do |resource_link| %>
+        <li><a href="<%= resource_link[:url] %>" target="_blank"><%= resource_link[:label] %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</section>

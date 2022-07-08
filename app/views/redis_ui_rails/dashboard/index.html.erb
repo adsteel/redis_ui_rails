@@ -1,0 +1,23 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li>Dashboard</li>
+  </ul>
+</nav>
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <h1 class="title">
+      [<%= Rails.env %>] Redis Dashboard
+    </h1>
+  </div>
+</section>
+
+<section class="section">
+  <h1>Redis Instances</h1>
+  <ul>
+    <% @redis_instances.each do |instance| %>
+      <br>
+      <li><%= link_to "#{instance.name} - #{instance.url}", instance_path(instance.id) %></li>
+    <% end %>
+  </ul>
+</section>

@@ -1,0 +1,10 @@
+tmp
+*.log
+!database.yml
+Gemfile.lock
+pkg
+.env
+.rspec
+.tool-versions
+.ruby-version
+*.gem

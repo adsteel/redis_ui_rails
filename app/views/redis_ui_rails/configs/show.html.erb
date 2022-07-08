@@ -1,0 +1,18 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Dashboard", root_path %></li>
+    <li><%= link_to "Instance Overview", instance_path(@instance.id) %></li>
+    <li class="is-active"><a href="#" aria-current="page">Server Config</a></li>
+  </ul>
+</nav>
+
+<%= render "shared/instance_hero" %>
+
+<section class="section">
+  <h1 class="title">Server Config</h1>
+  <ul>
+    <% @redis.info.except("redis_version").sort.each do |k, v| %>
+      <li><b><%= k %></b>: <%= v %></li>
+    <% end %>
+  </ul>
+</section>
