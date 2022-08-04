@@ -1,6 +1,8 @@
 # RedisUiRails
 
-A mountable UI Rails engine for inspecting your Redis instances. The teams that will get the most value out of this engine are teams that cannot use the Rails console to inspect their production Redis instances.
+A Rails engine for inspecting your Redis instances through a web UI.
+
+Built for teams that cannot easily use more direct access methods (e.g. console) to inspect their Redis instances.
 
 ## Installation
 
@@ -21,18 +23,18 @@ end
 3. Precompile your assets
 
 ```bash
-cd path/to/app/root
+cd path/to/your/rails/app/root
 bundle exec rake assets:precompile
 ```
 
-4. Configure your Redis UI engine.
+4. Configure your engine.
 
 Example:
 
 ```ruby
 # config/initializers/redis_ui_rail.rb
 
-# Each "instance" is a hash, with the following symbolized key structure:
+# Each Redis "instance" is a hash, with the following symbolized key structure:
 #   :id (required) The ID used in the URL for this instance.
 #   :name (required) The name that differentiates this Redis instance from others.
 #   :url (required) The URL of the redis instance.
@@ -84,3 +86,7 @@ direnv allow
 ```
 bundle exec rspec spec
 ```
+
+## Contributing
+
+Want to contribute? Awesome! Check out [our guidelines](CONTRIBUTING.md).
