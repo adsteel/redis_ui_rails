@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.email = ["eng@stitchfix.com"]
   spec.homepage = "https://github.com/stitchfix/redis_ui_rails"
   spec.summary = "A drop-in Rails UI for Redis."
+  spec.license = "MIT"
 
   spec.files = `git ls-files`.split("\n")
   spec.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
