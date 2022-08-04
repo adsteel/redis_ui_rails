@@ -22,5 +22,6 @@
 }
 
 .vertical-align {
-  vertical-align: -webkit-baseline-middle
+  vertical-align: -webkit-baseline-middle;
+  vertical-align: -moz-middle-with-baseline;
 }
