@@ -3,14 +3,13 @@ require "./lib/redis_ui_rails/version"
 Gem::Specification.new do |spec|
   spec.name = "redis_ui_rails"
   spec.version = RedisUiRails::VERSION
-  spec.authors = ['Stitch Fix Engineering']
-  spec.email = ['eng@stitchfix.com']
+  spec.authors = ["Stitch Fix Engineering"]
+  spec.email = ["eng@stitchfix.com"]
   spec.homepage = "https://github.com/stitchfix/redis_ui_rails"
   spec.summary = "A drop-in Rails UI for Redis."
 
   spec.files = `git ls-files`.split("\n")
-  spec.test_files = `git ls-files -- {spec}/*`.split("\n")
-  spec.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  spec.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rails", ">= 6.1.5.1"
@@ -19,6 +18,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "redis"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "standardrb"
+  spec.add_development_dependency "rspec_junit_formatter"
 
   # For Dummy Rails app tests
   spec.add_development_dependency "capybara"

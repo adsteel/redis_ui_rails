@@ -1,3 +1,5 @@
+[![stitchfix](https://circleci.com/gh/stitchfix/redis_ui_rails.svg?style=svg)](https://app.circleci.com/pipelines/github/stitchfix/redis_ui_rails)
+
 # RedisUiRails
 
 A Rails engine for inspecting your Redis instances through a web UI.
