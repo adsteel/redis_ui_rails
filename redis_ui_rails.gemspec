@@ -3,8 +3,8 @@ require "./lib/redis_ui_rails/version"
 Gem::Specification.new do |spec|
   spec.name = "redis_ui_rails"
   spec.version = RedisUiRails::VERSION
-  spec.authors = ["Stitch Fix Engineering"]
-  spec.email = ["eng@stitchfix.com"]
+  spec.authors = ["Stitch Fix Engineering", "Adam Steel"]
+  spec.email = ["opensource@stitchfix.com", "adam.steel@stitchfix.com"]
   spec.homepage = "https://github.com/stitchfix/redis_ui_rails"
   spec.summary = "A drop-in Rails UI for Redis."
   spec.license = "MIT"
