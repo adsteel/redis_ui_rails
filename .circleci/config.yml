@@ -1,0 +1,69 @@
+version: 2.1
+
+# ------------------------------------------------------------------------------
+# Docker images
+# ------------------------------------------------------------------------------
+
+ruby_image: &ruby_image
+  image: cimg/ruby:3.1-node
+  environment:
+    RACK_ENV: test
+    RAILS_ENV: test
+
+# ------------------------------------------------------------------------------
+# Shared job settings
+# ------------------------------------------------------------------------------
+
+defaults: &defaults
+  working_directory: ~/redis_ui_rails
+  docker:
+    - <<: *ruby_image
+
+# ------------------------------------------------------------------------------
+# Jobs
+# ------------------------------------------------------------------------------
+
+jobs:
+  test:
+    <<: *defaults
+    parallelism: 1
+    steps:
+      - checkout
+      - run:
+          name: Install deps
+          command: bundle install
+      - run:
+          name: Running tests
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format documentation \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+      - store_test_results:
+          path: test_results
+      - store_artifacts:
+          path: coverage
+          destination: /coverage
+
+  static_analysis:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Install deps
+          command: bundle install
+      - run:
+          name: Linting
+          command: bundle exec standardrb --format progress
+
+# ------------------------------------------------------------------------------
+# Workflows
+# ------------------------------------------------------------------------------
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - test
+      - static_analysis
