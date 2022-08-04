@@ -6,6 +6,10 @@ A Rails engine for inspecting your Redis instances through a web UI.
 
 Built for teams that cannot easily use more direct access methods (e.g. console) to inspect their Redis instances.
 
+![Screenshot viewing a Redis instance](docs/screenshot-instance.png)
+
+![Screenshot viewing a sample of keys](docs/screenshot-keys.png)
+
 ## Installation
 
 1. Add this line to your application's Gemfile:
