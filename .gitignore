@@ -8,3 +8,4 @@ pkg
 .tool-versions
 .ruby-version
 *.gem
+.DS_Store
