@@ -1,0 +1,27 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Dashboard", root_path %></li>
+    <li><%= link_to "Instance Overview", instance_path(@instance.id) %></li>
+    <li class="is-active"><a href="#" aria-current="page">Key Search</a></li>
+  </ul>
+</nav>
+
+<%= render "shared/instance_hero" %>
+
+<br>
+
+<section class="section">
+  <%= render "shared/flash" %>
+  <br>
+
+  <%= form_with url: instance_key_searches_path(@instance.id), method: :post do |f| %>
+    <div class="field">
+      <%= f.label :key, "Search for key (exact matches only)", class: "label" %>
+      <%= f.text_field :key, class: "input" %>
+    </div>
+
+    <div class="control">
+      <%= f.submit 'Search', class: "button is-link" %>
+    </div>
+  <% end %>
+</section>

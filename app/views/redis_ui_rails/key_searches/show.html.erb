@@ -1,0 +1,36 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Dashboard", root_path %></li>
+    <li><%= link_to "Instance Overview", instance_path(@instance.id) %></li>
+    <li class="is-active"><a href="#" aria-current="page">Key Search</a></li>
+  </ul>
+</nav>
+
+<%= render "shared/instance_hero" %>
+
+<br>
+
+<section class="section">
+  <h2 class="title is-3">Key - Value</h2>
+  <div>
+    <b class="has-text-weight-bold">Key:</b> <%= @key %>
+  </div>
+  <div>
+    <b class="has-text-weight-bold">Value:</b> <%= @value %>
+  </div>
+  <br>
+  <%= link_to new_instance_key_search_path(@instance.id) do %>
+    <div style="color: black;">
+      <button class="button is-success">New Key Search</button>
+    </div>
+  <% end %>
+  <br>
+  <%= form_with(url: destroy_instance_key_path(id: @instance.id, key: @key), \
+      method: :post, \
+      html: { onsubmit: "if(!confirm('This action cannot be undone. Delete key #{@key}?')){return false;}" }) \
+  do |f| %>
+    <div class="control">
+      <%= f.submit 'Delete Key', class: "button is-danger" %>
+    </div>
+  <% end %>
+</section>

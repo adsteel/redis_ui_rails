@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- Add unreleased changes here -->
 - Fix `vertical-align` class to properly align text in Firefox
 
+- Add the ability to view the value of a single key, and optionally delete that key.
+
 ## [1.0.1] - 2022-08-04
 
 ### Added

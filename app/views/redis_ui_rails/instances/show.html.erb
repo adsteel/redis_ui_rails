@@ -21,6 +21,13 @@
       <span class="vertical-align">View a sample of keys currently stored in this Redis.</span>
     </div>
   <% end %>
+  <br>
+  <%= link_to new_instance_key_search_path(@instance.id) do %>
+    <div style="color: black;">
+      <button class="button is-link">Single Key</button>
+      <span class="vertical-align">Find (and delete) the value of a single key in Redis</span>
+    </div>
+  <% end %>
 </section>
 
 <section class="section">
