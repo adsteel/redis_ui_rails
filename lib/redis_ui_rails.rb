@@ -6,7 +6,8 @@ require "uri"
 require "redis"
 
 require "redis_ui_rails/version"
-require "redis_ui_rails/redis_instance"
+require "redis_ui_rails/errors"
+require "redis_ui_rails/config_redis_instance"
 require "redis_ui_rails/config"
 require "redis_ui_rails/engine"
 

@@ -20,7 +20,7 @@ RSpec.describe RedisUiRails::Config do
     it "slurps hash instances into instance objects" do
       config.ingest
 
-      expect(config.redis_instances.map(&:class)).to contain_exactly(RedisUiRails::RedisInstance)
+      expect(config.redis_instances.map(&:class)).to contain_exactly(RedisUiRails::ConfigRedisInstance)
     end
   end
 

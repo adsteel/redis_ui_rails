@@ -4,7 +4,7 @@
       [<%= Rails.env %>] Redis instance: '<%= @instance.name %>'
     </h1>
     <p class="subtitle">
-      redis v<%= @redis.info["redis_version"] %>
+      redis v<%= @instance.info["redis_version"] %>
     </p>
     <p class="subtitle">
       URL: </b><%= @instance.url %>

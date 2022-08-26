@@ -1,5 +1,5 @@
 module RedisUiRails
-  class RedisInstance
+  class ConfigRedisInstance
     include ActiveModel::Validations
 
     REQUIRED_OPTIONS_KEYS = [:url, :name, :id].freeze

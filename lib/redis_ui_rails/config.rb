@@ -20,7 +20,7 @@ module RedisUiRails
 
     def ingest
       self.redis_instances = Array(all_redis_instances).compact.map do |redis_instance|
-        RedisInstance.new(redis_instance.symbolize_keys)
+        ConfigRedisInstance.new(redis_instance.symbolize_keys)
       end
     end
 
