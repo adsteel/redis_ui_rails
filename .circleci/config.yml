@@ -1,11 +1,14 @@
 version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.4
+
 # ------------------------------------------------------------------------------
 # Docker images
 # ------------------------------------------------------------------------------
 
 ruby_image: &ruby_image
-  image: cimg/ruby:3.1-node
+  image: cimg/ruby:3.1.1-browsers
   environment:
     RACK_ENV: test
     RAILS_ENV: test
@@ -29,8 +32,15 @@ jobs:
     parallelism: 1
     steps:
       - checkout
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run:
-          name: Install deps
+          name: Check Browser Install
+          command: |
+            google-chrome --version
+            chromedriver --version
+      - run:
+          name: Install Ruby deps
           command: bundle install
       - run:
           name: Running tests

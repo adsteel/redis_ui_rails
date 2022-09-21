@@ -1,12 +1,17 @@
 module RedisUiRails
   class KeysController < ApplicationController
     def show
-      @instance = RedisUiRails.config.redis_instances.detect { |obj| params[:id].to_s == obj.id.to_s }
+      @instance = Instance.find(params[:id])
+      @sample_keys = 50.times.map { @instance.randomkey }.uniq
+    end
 
-      raise "Missing instance for params: #{params.inspect}. Options are: #{RedisUiRails.config.redis_instances.map(&:id)}" if @instance.nil?
+    def destroy
+      @instance = Instance.find(params[:id])
+      @instance.del(params[:key])
 
-      @redis = Redis.new(url: @instance.url(unredacted: true))
-      @sample_keys = 50.times.map { @redis.randomkey }.uniq
+      flash[:notice] = "Key #{params[:key]} deleted"
+
+      redirect_to new_instance_key_search_path(@instance.id)
     end
   end
 end

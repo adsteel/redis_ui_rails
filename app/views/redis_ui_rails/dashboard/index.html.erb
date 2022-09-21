@@ -15,7 +15,7 @@
 <section class="section">
   <h1>Redis Instances</h1>
   <ul>
-    <% @redis_instances.each do |instance| %>
+    <% @instances.each do |instance| %>
       <br>
       <li><%= link_to "#{instance.name} - #{instance.url}", instance_path(instance.id) %></li>
     <% end %>

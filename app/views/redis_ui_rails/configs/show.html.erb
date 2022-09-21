@@ -11,7 +11,7 @@
 <section class="section">
   <h1 class="title">Server Config</h1>
   <ul>
-    <% @redis.info.except("redis_version").sort.each do |k, v| %>
+    <% @instance.info.except("redis_version").sort.each do |k, v| %>
       <li><b><%= k %></b>: <%= v %></li>
     <% end %>
   </ul>

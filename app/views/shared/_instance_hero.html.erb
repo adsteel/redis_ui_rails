@@ -1,10 +1,10 @@
 <section class="hero is-primary">
   <div class="hero-body">
-    <h1 class="title">
+    <h1 class="title is-2">
       [<%= Rails.env %>] Redis instance: '<%= @instance.name %>'
     </h1>
     <p class="subtitle">
-      redis v<%= @redis.info["redis_version"] %>
+      redis v<%= @instance.info["redis_version"] %>
     </p>
     <p class="subtitle">
       URL: </b><%= @instance.url %>
