@@ -19,7 +19,19 @@ module RedisUiRails
     end
 
     delegate :name, :id, :url, :resource_links, to: :config_redis_instance
-    delegate :randomkey, :info, :get, :set, :del, to: :redis
+    delegate(
+      :randomkey,
+      :info,
+      :get,
+      :set,
+      :type,
+      :hgetall,
+      :llen,
+      :lrange,
+      :srandmember,
+      :del,
+      to: :redis
+    )
 
     private
 

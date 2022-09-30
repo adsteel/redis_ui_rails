@@ -7,7 +7,12 @@ module RedisUiRails
     def create
       @instance = Instance.find(params[:id])
       key = params[:key]
-      value = @instance.get(params[:key])
+
+      value = case @instance.type(key)
+      when "none" then nil
+      else
+        "found"
+      end
 
       if value.nil?
         flash[:warning] = "No key '#{key}' found in Redis instance '#{@instance.id}'"
@@ -20,12 +25,15 @@ module RedisUiRails
     def show
       @instance = Instance.find(params[:id])
       @key = params[:key]
-      @value = @instance.get(params[:key])
+      @value = RedisValue.find(@key, instance: @instance)
 
       if @value.nil?
         flash[:warning] = "No key '#{params[:key]}' found in Redis instance '#{@instance.id}'"
         render :new
       end
+    rescue => e
+      flash[:error] = e.message
+      render :new
     end
   end
 end

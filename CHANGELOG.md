@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<!-- Add unreleased changes here -->
+- Added ability to find-and-delete more than just Redis "string" keys.
 
 ## [1.1.0] - 2022-09-16
 
