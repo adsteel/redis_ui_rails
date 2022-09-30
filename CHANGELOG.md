@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Add unreleased changes here -->
 
+## [1.2.0] - 2022-09-30
+
+- Added ability to find-and-delete more than just Redis "string" keys.
+
 ## [1.1.0] - 2022-09-16
 
 - Fix `vertical-align` class to properly align text in Firefox
